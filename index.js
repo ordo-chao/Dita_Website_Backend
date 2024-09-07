@@ -3,6 +3,14 @@ const app = express();
 const mongoose = require("mongoose");
 const eventRouter = require("./routes/events.route");
 const projectRouter = require("./routes/projects.route");
+const memberRouter = require("./routes/members.routes");
+const ditaLeaderRouter = require("./routes/ditaLeaders.route");
+const technicalWritingRouter = require("./routes/technicalWriting.route");
+
+
+const memberModel = require("./models/members.model");
+const ditaLeadersModel = require("./models/ditaleaders.model");
+const technicalWritingModel = require("./models/technicalWriting.model");
 
 const PORT = process.env.PORT || 3000;
 
@@ -17,6 +25,10 @@ app.get("/", (req, res) => {
 // Routes
 app.use("/api/v1/events", eventRouter);
 app.use("/api/v1/projects", projectRouter);
+app.use("/api/v1/members", memberRouter);
+app.use("/api/v1/ditaleaders", ditaLeaderRouter);
+app.use("/api/v1/technicalWriting", technicalWritingRouter);
+
 
 
 
